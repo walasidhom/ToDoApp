@@ -1,8 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck , faPen } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { finishToDo } from '../JS/actions/toDoActions';
 
-const Task = ({ task,index , markDone, setUpdateData }) => {
+const Task = ({ task, index, setUpdateData }) => {
+  const dispatch = useDispatch();
+
+  const markDone = () => {
+    dispatch(finishToDo(task.id));
+  }
+
+  
   return (
     <>
         
